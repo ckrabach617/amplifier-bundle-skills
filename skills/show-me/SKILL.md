@@ -90,7 +90,9 @@ Invention, placeholders, and unsourced facts are the cardinal sin, because you a
 
 > "yes please - he should never make anything up - ever. thought that was built into him. I never want anything that is made up. NO fake images or placeholders - the designer should be pulling the actual assets."
 
-If it can't be cited to a real source, assume it's invented and cut it.
+**A citation is not a source.** The dangerous fabrication is not the claim with no source — that one is easy to spot. It is the claim that *names* a source, sounds settled, and was never checked. So: open the named source and confirm it actually contains the claim. If the source can't be reached, doesn't say it, or is a conversation nobody can re-read, the claim is **unverified** — cut it or mark it plainly as unverified. Attributing a position to a named person, team, or document is the highest-risk form of this: an endorsement nobody can look up is invented until proven otherwise.
+
+If it can't be traced to a source you can actually open, assume it's invented and cut it.
 
 ### 3. Require Proof Rendered Where a Non-Expert Can See and Use It
 
@@ -134,9 +136,9 @@ You are the recipient who cannot inspect the internals — so you do not gather 
 
 1. **Separate proven from asserted.** Read the handoff and mark every "done," "working," or "true" that rests on nothing but the builder's say-so. Those unbacked claims are your headline findings.
 
-2. **Name the fabrication risk.** For every fact, number, quote, or asset, ask where it came from. Flag anything not tied to a real, cited source as presumed invented — you are the one who can't catch it later, so the burden is on the builder to prove it real, not on you to disprove it.
+2. **Check the citations, don't just count them.** For every fact, number, quote, or asset, find where it came from — then **open that source and confirm it actually says that**. A named source is not a checked source: the fabrication that survives review is the confident citation nobody followed. Anything whose source can't be opened, doesn't contain the claim, or is an unrecorded conversation is **unverified** — cut it or label it unverified. Apply this to *this review's own claims too*: if you cite something, it must be openable, or you are committing the failure you were sent to catch.
 
-3. **Demand the builder verify — for you, before handoff.** Require that it was actually run against the real files (not a toy case, originals untouched) and the result reported straight. "It should work" is not proof; "I ran it, here is what it produced" is. Say exactly what they must run and show.
+3. **Demand verification that someone else can re-run.** The builder must have actually run it against the real files (not a toy case, originals untouched) — but "I tested it" from the party being judged is self-grading, not proof. Require the verification be **independently re-checkable**: the exact command, file, screenshot, or link that a *different* person can re-open or re-run to get the same result. If no one but the builder could ever confirm it, it is unproven, however sincerely it's asserted. Name the specific artifact they must hand over.
 
 4. **Require the proof be rendered where you can see and use it.** Check whether reaching the result needs a typed command, a remembered path, or reading code. If so, it isn't shown — say what the clickable, visible form must be (an icon, a browser, a report you can open) before it counts.
 
@@ -190,13 +192,13 @@ This skill is one lens among seven. It owns *evidentiary authenticity — whethe
 
 If SM's finding reduces to "it's too complex," "it costs later," "it has edge cases," "nobody wanted it," "wrong goal," "let me trace the pipeline," or merely "the reader can't check it" (that's the audience, not the evidence), it has collapsed — sharpen it back to *is the presented evidence genuine, and does it actually demonstrate the claim*, or cut it.
 
-### Auto-activation tie-break with restless-old-brian
+### Auto-activation tie-breaks
 
-SM and ROB share `priority: 3` and overlapping triggers ("is it real," "prove it"), because both demand reality. When both could fire, resolve by *who is asking*: **SM wins when the recipient cannot verify** — a non-technical owner, "I can't check this myself," "I'll never remember to type that," fabrication worries, proof that must be seen or clicked. **ROB wins when a capable verifier will prove it end-to-end** — logs, pipeline order, "proven end-to-end, in the right order." If it stays ambiguous, run SM when the audience is a non-expert who must *trust* the result and ROB when the audience can *inspect* it. The two do not conflict — they cover different halves of "is it real" — so running both is also valid.
+**One governing rule, applied to every overlap below:** on *auto-activation* — where a trigger fires without anyone choosing a lens — exactly **one** lens wins; pick it with the routing rules here. On *explicit invocation* — where a human or agent names the lenses — any number may be run together; these are lenses, not exclusive gates. Auto-activation picks one; a person may always ask for more.
 
-### Auto-activation tie-break with tester-breaker
+**vs. restless-old-brian.** SM and ROB share `priority: 3` and overlapping triggers ("is it real," "prove it"). Route by *what is in doubt*: **ROB wins when the doubt is whether the thing works** — end-to-end behavior, pipeline order, plumbing, "proven as a user would hit it." **SM wins when the doubt is whether the evidence is genuine** — a cited fact nobody opened, a number with no source, an attributed claim, a demo that doesn't actually show what it claims. Rough test: if a capable verifier would settle it by *running the system*, that's ROB; if they'd settle it by *checking a source*, that's SM. Ambiguous → ROB (the broader, older gate).
 
-SM and tester-breaker share the trigger `"did you test it"`, but they mean different things by it. **Tester-breaker owns the *adversarial edge*** — it hunts the malformed input, the race, the boundary that makes a genuine build fail. **SM owns the *honest happy-path demonstration*** — it asks whether the success you were *shown* is real and actually demonstrates the claim, not whether a hostile input can break it. Resolve by intent: edge-case / "how does this fail" → tester-breaker; "was this even tested, and is the evidence of success genuine" → SM. A build can pass SM (the demo is real and honestly shown) and still fail tester-breaker (it breaks on the edge nobody tried) — and vice versa.
+**vs. tester-breaker.** SM and TB share the trigger `"did you test it"` and mean different things by it. **TB owns the adversarial edge** — the malformed input, the race, the boundary that makes a genuine build fail. **SM owns the honesty of the reported success** — whether the demonstration you were shown is real and actually demonstrates the claim. Route by intent: "how does this fail / what breaks it" → TB; "was this actually tested, and is the evidence of success genuine" → SM. Ambiguous → TB. A build can pass SM (demo real and honestly shown) and still fail TB (breaks on the edge nobody tried), and vice versa.
 
 ## Final Note
 
